@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daisy Obuzunya | Portfolio</title>
+    <meta
+      name="description"
+      content="Daisy Obuzunya is a Software Engineering Student from Delta State, Nigeria, currently studying at Nile University. She builds full-stack apps, contributes to open source, and creates elegant digital experiences."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            boxShadow: {
+              glow: '0 0 30px rgba(139, 92, 246, 0.45)',
+              cyan: '0 0 30px rgba(34, 211, 238, 0.4)',
+            },
+            colors: {
+              slateDeep: '#020817',
+              night: '#0f172a',
+              panel: '#111827',
+              accent: '#8b5cf6',
+              accent2: '#22d3ee',
+              mint: '#34d399',
+            },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwUEQp1C4jK1Y8dJ4O/7kHq2z2wE5u0e4w2HqvM8W8AK1N0R9VQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top, rgba(139, 92, 246, 0.2), transparent 26%),
+          radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.16), transparent 18%),
+          #020817;
+      }
+
+      .glass {
+        background: rgba(15, 23, 42, 0.55);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .gradient-border {
+        position: relative;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .gradient-border::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(34, 211, 238, 0.7), rgba(52, 211, 153, 0.8));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      .blob {
+        position: absolute;
+        filter: blur(90px);
+        opacity: 0.8;
+        border-radius: 9999px;
+        animation: float 12s ease-in-out infinite alternate;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px) translateX(0px) scale(1);
+        }
+        100% {
+          transform: translateY(-18px) translateX(14px) scale(1.08);
+        }
+      }
+
+      .project-card:hover,
+      .social-link:hover,
+      .nav-link:hover,
+      .source-tag:hover {
+        transform: translateY(-4px);
+      }
+
+      .project-card,
+      .social-link,
+      .nav-link,
+      .source-tag {
+        transition: all 0.25s ease;
+      }
+
+      .grid-fade {
+        background-image:
+          linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+    </style>
+  </head>
+  <body class="text-slate-100 antialiased">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <header class="sticky top-0 z-50 pt-5">
+        <nav class="glass mx-auto flex max-w-6xl items-center justify-between rounded-full px-5 py-3 shadow-glow">
+          <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 via-cyan-400 to-emerald-400 text-base font-black text-slate-950 shadow-glow">
+              D
+            </div>
+            <div>
+              <p class="text-lg font-bold tracking-wide">Daisy</p>
+            </div>
+          </div>
+
+          <div class="hidden items-center gap-8 md:flex">
+            <a href="#about" class="nav-link text-sm text-slate-300 hover:text-white">About</a>
+            <a href="#projects" class="nav-link text-sm text-slate-300 hover:text-white">Projects</a>
+            <a href="#experience" class="nav-link text-sm text-slate-300 hover:text-white">Experience</a>
+            <a href="#contact" class="nav-link text-sm text-slate-300 hover:text-white">Contact</a>
+          </div>
+
+          <a
+            href="#contact"
+            class="hidden rounded-full border border-violet-400/40 bg-violet-500/10 px-4 py-2 text-sm font-semibold text-violet-200 transition hover:bg-violet-500/20 md:inline-flex"
+          >
+            Let’s Connect
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        <section id="home" class="relative overflow-hidden pb-20 pt-16 md:pt-20">
+          <div class="blob left-[-80px] top-20 h-56 w-56 bg-violet-600/50"></div>
+          <div class="blob right-10 top-12 h-72 w-72 bg-cyan-500/30"></div>
+          <div class="blob bottom-10 left-1/3 h-64 w-64 bg-emerald-500/20"></div>
+
+          <div class="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <div class="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-200">
+                <span class="inline-block h-2 w-2 rounded-full bg-cyan-300"></span>
+                Available for internships & collaboration
+              </div>
+
+              <h1 class="max-w-xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
+                Hi, I'm Daisy — Crafting the Future of Code.
+              </h1>
+
+              <p class="mt-6 max-w-xl text-lg text-slate-300">
+                Software Engineering Student | Full-Stack Developer | Open Source Enthusiast
+              </p>
+
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#projects"
+                  class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-6 py-3.5 text-base font-semibold text-white shadow-glow transition hover:scale-[1.02]"
+                >
+                  View Projects
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a
+                  href="#contact"
+                  class="inline-flex items-center gap-3 rounded-full border border-slate-600 bg-slate-900/70 px-6 py-3.5 text-base font-semibold text-slate-100 transition hover:border-cyan-400/60 hover:text-cyan-200"
+                >
+                  Get in Touch
+                  <i class="fa-regular fa-paper-plane"></i>
+                </a>
+              </div>
+
+              <div class="mt-10 flex flex-wrap items-center gap-6 text-sm text-slate-400">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-location-dot text-cyan-400"></i>
+                  Delta State, Nigeria
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-school text-violet-400"></i>
+                  Nile University
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="gradient-border relative overflow-hidden rounded-[2rem] p-4 shadow-glow">
+                <div class="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-slate-900/0 to-cyan-500/20"></div>
+                <div class="relative rounded-[1.5rem] border border-white/10 bg-slate-950/90 p-5">
+                  <div class="mb-5 flex items-center justify-between">
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.25em] text-slate-400">Portfolio Pulse</p>
+                    </div>
+                    <span class="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2 py-1 text-xs font-medium text-emerald-300">
+                      Online
+                    </span>
+                  </div>
+
+                  <div class="grid gap-4">
+                    <div class="grid grid-cols-2 gap-4">
+                      <div class="rounded-2xl border border-violet-500/20 bg-violet-500/10 p-4">
+                        <div class="mb-2 flex items-center justify-between text-violet-200">
+                          <i class="fa-solid fa-code text-lg"></i>
+                          <span class="text-xs uppercase tracking-widest">Builds</span>
+                        </div>
+                        <p class="text-3xl font-black text-white">27+</p>
+                        <p class="mt-1 text-xs text-slate-300">Web interfaces shipped</p>
+                      </div>
+
+                      <div class="rounded-2xl border border-cyan-500/20 bg-cyan-500/10 p-4">
+                        <div class="mb-2 flex items-center justify-between text-cyan-200">
+                          <i class="fa-solid fa-bolt text-lg"></i>
+                          <span class="text-xs uppercase tracking-widest">Focus</span>
+                        </div>
+                        <p class="text-3xl font-black text-white">AI</p>
+                        <p class="mt-1 text-xs text-slate-300">Product thinking</p>
+                      </div>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-700 bg-slate-900/80 p-4">
+                      <div class="mb-4 flex items-center justify-between">
+                        <div>
+                          <p class="text-sm text-slate-300">System Design Lab</p>
+                          <p class="mt-1 text-xs text-slate-500">Realtime analytics</p>
+                        </div>
+                        <div class="rounded-full bg-emerald-500/10 px-2 py-1 text-xs font-medium text-emerald-300">
+                          +18.4%
+                        </div>
+                      </div>
+
+                      <div class="mb-3 flex items-end gap-2">
+                        <div class="w-1/6 rounded-t-xl bg-violet-500/90" style="height: 30px"></div>
+                        <div class="w-1/6 rounded-t-xl bg-violet-500/60" style="height: 42px"></div>
+                        <div class="w-1/6 rounded-t-xl bg-cyan-400/80" style="height: 58px"></div>
+                        <div class="w-1/6 rounded-t-xl bg-cyan-400/60" style="height: 72px"></div>
+                        <div class="w-1/6 rounded-t-xl bg-emerald-400/70" style="height: 90px"></div>
+                        <div class="w-1/6 rounded-t-xl bg-emerald-400/80" style="height: 110px"></div>
+                      </div>
+
+                      <div class="grid gap-3 text-xs text-slate-300 sm:grid-cols-3">
+                        <div class="rounded-xl border border-slate-700 bg-slate-800/80 p-2">
+                          <p class="text-slate-500">Latency</p>
+                          <p class="mt-1 font-semibold text-white">186ms</p>
+                        </div>
+                        <div class="rounded-xl border border-slate-700 bg-slate-800/80 p-2">
+                          <p class="text-slate-500">Uptime</p>
+                          <p class="mt-1 font-semibold text-white">99.9%</p>
+                        </div>
+                        <div class="rounded-xl border border-slate-700 bg-slate-800/80 p-2">
+                          <p class="text-slate-500">Sprints</p>
+                          <p class="mt-1 font-semibold text-white">14</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="py-20">
+          <div class="mx-auto max-w-6xl">
+            <div class="mb-12 text-center">
+              <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-violet-300">About Me</p>
+              <h2 class="text-3xl font-black text-white sm:text-4xl">Turning complex problems into elegant products.</h2>
+            </div>
+
+            <div class="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+              <div class="glass rounded-[2rem] p-7">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-500 text-lg text-white shadow-glow">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Profile</p>
+                    <h3 class="text-xl font-bold text-white">Daisy Obuzunya</h3>
+                  </div>
+                </div>
+
+                <p class="text-base leading-8 text-slate-300">
+                  I’m a Software Engineering student from Delta State, Nigeria, currently pursuing my studies at Nile University. My journey began with a fascination for how systems work behind the scenes, and it quickly evolved into a passion for building digital products that solve real problems.
+                </p>
+                <p class="mt-4 text-base leading-8 text-slate-300">
+                  I enjoy dissecting complex algorithms, designing scalable application architecture, and turning ideas into clean, user-first experiences. Whether I’m building APIs, crafting UI flows, or tackling data-heavy backend logic, I aim to bridge the gap between technical depth and practical impact.
+                </p>
+
+                <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+                  <div class="rounded-2xl border border-slate-700 bg-slate-800/70 p-4">
+                    <p class="text-2xl font-black text-white">4+</p>
+                    <p class="mt-1 text-xs text-slate-400">Years learning</p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-700 bg-slate-800/70 p-4">
+                    <p class="text-2xl font-black text-white">12</p>
+                    <p class="mt-1 text-xs text-slate-400">Projects built</p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-700 bg-slate-800/70 p-4">
+                    <p class="text-2xl font-black text-white">6</p>
+                    <p class="mt-1 text-xs text-slate-400">Hackathons</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass rounded-[2rem] p-7">
+                <div class="mb-5 flex items-center gap-3">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500 text-lg text-white shadow-cyan">
+                    <i class="fa-solid fa-layer-group"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Stack</p>
+                    <h3 class="text-xl font-bold text-white">Tech Stack & Tools</h3>
+                  </div>
+                </div>
+
+                <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                  <span class="source-tag rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-2 text-center text-sm font-medium text-violet-200">React</span>
+                  <span class="source-tag rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-center text-sm font-medium text-cyan-200">Node.js</span>
+                  <span class="source-tag rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-center text-sm font-medium text-emerald-200">Python</span>
+                  <span class="source-tag rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-2 text-center text-sm font-medium text-blue-200">TypeScript</span>
+                  <span class="source-tag rounded-full border border-pink-400/30 bg-pink-500/10 px-3 py-2 text-center text-sm font-medium text-pink-200">Git</span>
+                  <span class="source-tag rounded-full border border-orange-400/30 bg-orange-500/10 px-3 py-2 text-center text-sm font-medium text-orange-200">Docker</span>
+                  <span class="source-tag rounded-full border border-yellow-400/30 bg-yellow-500/10 px-3 py-2 text-center text-sm font-medium text-yellow-200">AWS</span>
+                  <span class="source-tag rounded-full border border-red-400/30 bg-red-500/10 px-3 py-2 text-center text-sm font-medium text-red-200">MongoDB</span>
+                  <span class="source-tag rounded-full border border-slate-500/30 bg-slate-500/10 px-3 py-2 text-center text-sm font-medium text-slate-200">Figma</span>
+                </div>
+
+                <div class="mt-8 rounded-2xl border border-slate-700 bg-gradient-to-r from-slate-900/70 to-slate-800/70 p-5">
+                  <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Current Focus</p>
+                  <ul class="mt-4 space-y-3 text-slate-200">
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> Building scalable full-stack apps</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> Exploring AI-powered developer tooling</li>
+                    <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-400"></i> Contributing to open source and student communities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="py-20">
+          <div class="mx-auto max-w-6xl">
+            <div class="mb-12 text-center">
+              <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Projects</p>
+              <h2 class="text-3xl font-black text-white sm:text-4xl">Selected work designed to solve real problems.</h2>
+            </div>
+
+            <div class="grid gap-8 lg:grid-cols-3">
+              <article class="project-card glass group overflow-hidden rounded-[2rem] border border-violet-400/20">
+                <div class="h-48 bg-gradient-to-br from-violet-500/30 via-slate-900 to-cyan-500/20 p-4">
+                  <div class="grid h-full gap-3 rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-4 shadow-inner">
+                    <div class="flex items-center gap-2">
+                      <span class="h-3 w-3 rounded-full bg-rose-400"></span>
+                      <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+                      <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                    </div>
+                    <div class="grid flex-1 gap-3 md:grid-cols-[1.2fr_0.8fr]">
+                      <div class="rounded-2xl bg-gradient-to-br from-violet-500/40 to-cyan-500/20 p-3">
+                        <div class="mb-3 h-8 w-24 rounded-lg bg-white/10"></div>
+                        <div class="mb-2 h-5 w-full rounded bg-white/10"></div>
+                        <div class="mb-2 h-5 w-4/5 rounded bg-white/10"></div>
+                        <div class="h-5 w-3/5 rounded bg-white/10"></div>
+                      </div>
+                      <div class="flex flex-col gap-2">
+                        <div class="h-14 rounded-xl bg-violet-500/20"></div>
+                        <div class="flex-1 rounded-xl bg-cyan-500/20"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <div class="mb-4 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-white">QuantumQuery</h3>
+                    <span class="rounded-full border border-violet-400/30 bg-violet-500/10 px-2 py-1 text-xs font-medium text-violet-200">AI</span>
+                  </div>
+                  <p class="text-slate-300">
+                    An AI-powered code optimization platform that analyzes performance bottlenecks and suggests faster patterns, cleaner architecture, and refactoring opportunities.
+                  </p>
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">React</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">Python</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">FastAPI</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">LLM</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card glass group overflow-hidden rounded-[2rem] border border-emerald-400/20">
+                <div class="h-48 bg-gradient-to-br from-emerald-500/30 via-slate-900 to-cyan-500/15 p-4">
+                  <div class="grid h-full gap-3 rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-4">
+                    <div class="flex items-center gap-2">
+                      <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                      <span class="h-3 w-3 rounded-full bg-cyan-400"></span>
+                      <span class="h-3 w-3 rounded-full bg-violet-400"></span>
+                    </div>
+                    <div class="grid flex-1 gap-3 md:grid-cols-[0.7fr_1.3fr]">
+                      <div class="space-y-2">
+                        <div class="h-5 w-full rounded bg-emerald-500/20"></div>
+                        <div class="h-14 rounded-xl bg-emerald-500/20"></div>
+                        <div class="h-14 rounded-xl bg-cyan-500/20"></div>
+                      </div>
+                      <div class="rounded-2xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/15 p-3">
+                        <div class="mb-2 flex gap-2">
+                          <div class="h-2.5 w-2.5 rounded-full bg-emerald-400"></div>
+                          <div class="h-2.5 w-2.5 rounded-full bg-cyan-400"></div>
+                          <div class="h-2.5 w-2.5 rounded-full bg-violet-400"></div>
+                        </div>
+                        <div class="mb-2 h-6 w-2/3 rounded bg-white/10"></div>
+                        <div class="h-20 rounded-xl bg-slate-900/70"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <div class="mb-4 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-white">EcoSphere</h3>
+                    <span class="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-2 py-1 text-xs font-medium text-emerald-200">IoT</span>
+                  </div>
+                  <p class="text-slate-300">
+                    A decentralized IoT dashboard that aggregates local carbon footprint data, visualizes sustainability trends, and helps communities act on measurable environmental impact.
+                  </p>
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">Next.js</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">Blockchain</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">IoT</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">Charts</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card glass group overflow-hidden rounded-[2rem] border border-cyan-400/20">
+                <div class="h-48 bg-gradient-to-br from-cyan-500/30 via-slate-900 to-violet-500/20 p-4">
+                  <div class="grid h-full gap-3 rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-4">
+                    <div class="flex items-center gap-2">
+                      <span class="h-3 w-3 rounded-full bg-cyan-400"></span>
+                      <span class="h-3 w-3 rounded-full bg-violet-400"></span>
+                      <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                    </div>
+                    <div class="grid flex-1 gap-3">
+                      <div class="flex gap-2">
+                        <div class="h-12 w-12 rounded-xl bg-cyan-500/20"></div>
+                        <div class="h-12 flex-1 rounded-xl bg-violet-500/20"></div>
+                        <div class="h-12 w-12 rounded-xl bg-emerald-500/20"></div>
+                      </div>
+                      <div class="grid flex-1 gap-2 md:grid-cols-[1fr_1fr]">
+                        <div class="rounded-2xl bg-slate-900/70 p-3">
+                          <div class="mb-2 h-5 w-3/4 rounded bg-cyan-500/20"></div>
+                          <div class="space-y-2">
+                            <div class="h-3 rounded bg-white/10"></div>
+                            <div class="h-3 w-11/12 rounded bg-white/10"></div>
+                            <div class="h-3 w-10/12 rounded bg-white/10"></div>
+                          </div>
+                        </div>
+                        <div class="rounded-2xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 p-3">
+                          <div class="h-full rounded-xl border border-white/10 bg-slate-900/60"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <div class="mb-4 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-white">DevPulse</h3>
+                    <span class="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2 py-1 text-xs font-medium text-cyan-200">Collab</span>
+                  </div>
+                  <p class="text-slate-300">
+                    A real-time collaboration workspace built for engineering students to manage tasks, share code, and track project sprints as teams iterate together.
+                  </p>
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">React</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">Socket.IO</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">PostgreSQL</span>
+                    <span class="rounded-full bg-slate-800 px-2.5 py-1 text-xs text-slate-200">Teams</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" class="py-20">
+          <div class="mx-auto max-w-5xl">
+            <div class="mb-12 text-center">
+              <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-violet-300">Experience</p>
+              <h2 class="text-3xl font-black text-white sm:text-4xl">A timeline of growth, leadership, and learning.</h2>
+            </div>
+
+            <div class="relative before:absolute before:left-5 before:top-0 before:h-full before:w-px before:bg-gradient-to-b before:from-violet-500 before:via-cyan-500 before:to-emerald-500 md:before:left-1/2">
+              <div class="space-y-10">
+                <div class="relative flex flex-col md:flex-row md:items-center">
+                  <div class="md:w-1/2 md:pr-10 md:text-right">
+                    <div class="glass inline-block rounded-2xl p-5 text-left md:text-right">
+                      <p class="text-xs uppercase tracking-[0.2em] text-violet-300">2024</p>
+                      <h3 class="mt-2 text-xl font-bold text-white">Software Engineering Intern at TechCorp</h3>
+                      <p class="mt-3 text-slate-300">Built internal dashboards, optimized deployment pipelines, and contributed to product improvements used by engineering teams.</p>
+                    </div>
+                  </div>
+                  <div class="relative z-10 my-4 flex h-10 w-10 items-center justify-center rounded-full border-4 border-slate-950 bg-gradient-to-br from-violet-500 to-cyan-500 md:mx-auto md:my-0">
+                    <i class="fa-solid fa-briefcase text-xs text-white"></i>
+                  </div>
+                  <div class="md:w-1/2 md:pl-10"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row md:items-center">
+                  <div class="md:w-1/2 md:pr-10"></div>
+                  <div class="relative z-10 my-4 flex h-10 w-10 items-center justify-center rounded-full border-4 border-slate-950 bg-gradient-to-br from-emerald-500 to-cyan-500 md:mx-auto md:my-0">
+                    <i class="fa-solid fa-trophy text-xs text-white"></i>
+                  </div>
+                  <div class="md:w-1/2 md:pl-10">
+                    <div class="glass inline-block rounded-2xl p-5 text-left">
+                      <p class="text-xs uppercase tracking-[0.2em] text-emerald-300">2023</p>
+                      <h3 class="mt-2 text-xl font-bold text-white">Lead Organizer at University Hackathon</h3>
+                      <p class="mt-3 text-slate-300">Coordinated student teams, facilitated design sprints, and helped turn ideas into working prototypes within 48 hours.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row md:items-center">
+                  <div class="md:w-1/2 md:pr-10 md:text-right">
+                    <div class="glass inline-block rounded-2xl p-5 text-left md:text-right">
+                      <p class="text-xs uppercase tracking-[0.2em] text-cyan-300">2022</p>
+                      <h3 class="mt-2 text-xl font-bold text-white">Open Source Contributor</h3>
+                      <p class="mt-3 text-slate-300">Collaborated on documentation, accessibility improvements, and frontend bug fixes for developer tools used by students worldwide.</p>
+                    </div>
+                  </div>
+                  <div class="relative z-10 my-4 flex h-10 w-10 items-center justify-center rounded-full border-4 border-slate-950 bg-gradient-to-br from-cyan-500 to-violet-500 md:mx-auto md:my-0">
+                    <i class="fa-solid fa-code-branch text-xs text-white"></i>
+                  </div>
+                  <div class="md:w-1/2 md:pl-10"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row md:items-center">
+                  <div class="md:w-1/2 md:pr-10"></div>
+                  <div class="relative z-10 my-4 flex h-10 w-10 items-center justify-center rounded-full border-4 border-slate-950 bg-gradient-to-br from-violet-500 to-emerald-500 md:mx-auto md:my-0">
+                    <i class="fa-solid fa-graduation-cap text-xs text-white"></i>
+                  </div>
+                  <div class="md:w-1/2 md:pl-10">
+                    <div class="glass inline-block rounded-2xl p-5 text-left">
+                      <p class="text-xs uppercase tracking-[0.2em] text-emerald-300">Current</p>
+                      <h3 class="mt-2 text-xl font-bold text-white">Software Engineering Student at Nile University</h3>
+                      <p class="mt-3 text-slate-300">Deepening my foundation in software engineering, distributed systems, design patterns, and product-led thinking.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="pb-20 pt-10">
+          <div class="mx-auto max-w-6xl">
+            <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+              <div class="glass rounded-[2rem] p-7">
+                <p class="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Contact</p>
+                <h2 class="text-3xl font-black text-white">Let’s build something meaningful.</h2>
+                <p class="mt-4 text-slate-300">
+                  I’m open to internships, product collaborations, and conversations about software engineering, design systems, and impactful digital products.
+                </p>
+
+                <div class="mt-8 space-y-5">
+                  <div class="flex items-center gap-3 text-slate-200">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10 text-violet-300">
+                      <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <span>daisy.obuzunya@gmail.com</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-slate-200">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-300">
+                      <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <span>Delta State, Nigeria</span>
+                  </div>
+                </div>
+
+                <div class="mt-8 flex gap-4">
+                  <a href="https://github.com" target="_blank" rel="noreferrer" class="social-link flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 text-slate-200 hover:border-violet-400 hover:text-violet-200">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="social-link flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 text-slate-200 hover:border-cyan-400 hover:text-cyan-200">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noreferrer" class="social-link flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 text-slate-200 hover:border-emerald-400 hover:text-emerald-200">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="glass rounded-[2rem] p-7">
+                <form class="space-y-5">
+                  <div>
+                    <label for="name" class="mb-2 block text-sm font-medium text-slate-200">Your Name</label>
+                    <input
+                      id="name"
+                      type="text"
+                      class="w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email Address</label>
+                    <input
+                      id="email"
+                      type="email"
+                      class="w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="message" class="mb-2 block text-sm font-medium text-slate-200">Message</label>
+                    <textarea
+                      id="message"
+                      rows="5"
+                      class="w-full rounded-2xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-slate-100 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/30"
+                      placeholder="Tell me about your project or idea..."
+                    ></textarea>
+                  </div>
+
+                  <button type="submit" class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 px-6 py-3.5 font-semibold text-white shadow-glow transition hover:scale-[1.01]">
+                    Send Message
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="pb-12 pt-6">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 border-t border-slate-800 pt-8 text-sm text-slate-400 md:flex-row">
+          <p>© 2026 Daisy Obuzunya. Crafted with code and curiosity.</p>
+          <div class="flex items-center gap-4">
+            <a href="#about" class="hover:text-white">About</a>
+            <a href="#projects" class="hover:text-white">Projects</a>
+            <a href="#contact" class="hover:text-white">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
